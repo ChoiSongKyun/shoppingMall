@@ -5,11 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="/shop/css/header.css" rel="stylesheet">
+<style >
+ /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 0px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+
+</style>
 
 <title>Insert title here</title>
 </head>
 <body>
+
+
 
 <div class="jumbotron">
   <div class="container text-center">

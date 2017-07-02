@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  
   <style>     
   .carousel-inner img {
@@ -13,7 +12,7 @@
       min-height:200px;
   }
 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  * Hide the carousel text when the screen is less than 600 pixels wide */
   @media (max-width: 600px) {
     .carousel-caption {
       display: none; 
@@ -137,7 +136,8 @@
       <p>Partner 3</p>
     </div>
     
-    <div class="col-sm-4">
+    <div class="co
+    l-sm-4">
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
       <p>Partner 1</p>
     </div>
@@ -155,6 +155,4 @@
 <jsp:include page="footer.jsp"/>
 
 </body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>
