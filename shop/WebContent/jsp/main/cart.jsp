@@ -80,8 +80,8 @@
 							<td style="vertical-align: middle; text-align: center;">무료</td>
 							<td style="vertical-align: middle; text-align: center;">32,000 won</td>
 							<td style="vertical-align: middle; text-align: center;">
-							<a href="#" class="btn btn-sm btn-default">주문하기</a><br><br>
-							<a href="#" class="btn btn-sm btn-default">관심상품</a><br><br>
+							<a href="#" class="btn btn-sm btn-default">주문하기</a><br>
+							<a href="#" class="btn btn-sm btn-default">관심상품</a><br>
 							<a href="#" class="btn btn-sm btn-default">삭제하기</a>
 							
 							</td>
