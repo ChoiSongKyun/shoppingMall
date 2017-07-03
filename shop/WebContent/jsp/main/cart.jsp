@@ -75,8 +75,16 @@
 							<a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-chevron-down"></span></a></div>
 							
 							</td>
-							<td style="vertical-align: middle; text-align: center;">320원</td>
+							<td style="vertical-align: middle; text-align: center;">-</td>
+							<td style="vertical-align: middle; text-align: center;">기본배송</td>
+							<td style="vertical-align: middle; text-align: center;">무료</td>
 							<td style="vertical-align: middle; text-align: center;">32,000 won</td>
+							<td style="vertical-align: middle; text-align: center;">
+							<a href="#" class="btn btn-sm btn-default">주문하기</a><br><br>
+							<a href="#" class="btn btn-sm btn-default">관심상품</a><br><br>
+							<a href="#" class="btn btn-sm btn-default">삭제하기</a>
+							
+							</td>
 						</tr>
 
 					</tbody>
