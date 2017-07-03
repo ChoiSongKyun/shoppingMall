@@ -136,8 +136,7 @@
       <p>Partner 3</p>
     </div>
     
-    <div class="co
-    l-sm-4">
+    <div class="col-sm-4">
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
       <p>Partner 1</p>
     </div>
