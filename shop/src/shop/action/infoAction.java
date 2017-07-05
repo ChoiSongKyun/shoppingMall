@@ -1,14 +1,17 @@
 package shop.action;
+
 import javax.servlet.http.HttpServletRequest;
 
 import shop.control.ActionForWard;
-import shop.dao.ScottDao;
-public class EmpInfoAction implements Action{
+import shop.dao.shopDao;
+
+public class infoAction implements Action {
+	
 	private String path;
 	private boolean redirect;
-	
-	
-	public EmpInfoAction(String path, boolean redirect) {
+	private shopDao dao = new shopDao();
+
+	public infoAction(String path, boolean redirect) {
 		super();
 		this.path = path;
 		this.redirect = redirect;
@@ -17,21 +20,18 @@ public class EmpInfoAction implements Action{
 	@Override
 	public ActionForWard execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		int empno=Integer.parseInt(request.getParameter("empno"));
+		int pno=Integer.parseInt(request.getParameter("pno"));
 		try {
-			request.setAttribute("empInfo", ScottDao.selectEmpOne(empno));			
+			
+			request.setAttribute("bean",dao.selectOne(pno));	
+			
 		} catch (Exception e) {
 			// TODO: handle exception
-	      e.printStackTrace();
+			e.printStackTrace();
+			
 		}
 		
-		return new ActionForWard(path,redirect);
+		return new ActionForWard(path, redirect);
 	}
-	
 
 }
-
-
-
-
-

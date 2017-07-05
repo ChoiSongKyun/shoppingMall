@@ -44,7 +44,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="home.jsp">Home</a></li>
+				<li class="active"><a href="/shop/home.do?cmd=home">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">RING <span class="caret"></span></a>
 					<ul class="dropdown-menu">

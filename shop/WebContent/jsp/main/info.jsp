@@ -11,12 +11,13 @@
 	<jsp:include page="header.jsp" />
 
 
+
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<!-- 상품이미지 -->
 			<div class="col-sm-6">
-				<img src="https://placehold.it/150x180?text=IMAGE"
-					class="img-responsive" style="width: 100%" alt="Image" align="top">
+				<img src="/shop/img/${bean.mainimg}" class="img-responsive"
+					style="width: 100%" alt="Image" align="top">
 			</div>
 			<div class="col-sm-1"></div>
 			<!-- 구매정보 구매버튼 -->
@@ -25,54 +26,55 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>벨토아 가디건</th>
+							<th>${bean.pname}</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>
 								<!--상품옵션  -->
-								<table>
+								<table style="width: 100%">
 									<tbody>
 
 										<tr>
-											<td colspan="2">얇아서 여름에 가지고 다니면서 걸치기 참좋아요</td>
+											<td colspan="3">간단 설명</td>
 										</tr>
 										<tr>
-											<td colspan="2">&nbsp;</td>
-										</tr>
-
-										<tr>
-											<td>상품명</td>
-											<td colspan="1" align="right">벨코어 가디건</td>
-										</tr>
-										<tr>
-											<td colspan="2">&nbsp;</td>
+											<td colspan="3">&nbsp;</td>
 										</tr>
 
 										<tr>
-											<td>Price</td>
-											<td colspan="1" align="right">32,000 won</td>
+											<td colspan="2">상품명</td>
+											
+											<td colspan="1" align="right">${bean.pname}</td>
+										</tr>
+										<tr>
+											<td colspan="3">&nbsp;</td>
 										</tr>
 
 										<tr>
-											<td colspan="2">&nbsp;</td>
+											<td colspan="2">Price</td>
+											<td colspan="1" align="right">${bean.price} won</td>
 										</tr>
 
 										<tr>
-											<td>Point</td>
-											<td colspan="1" align="right">320원(1%)</td>
+											<td colspan="3">&nbsp;</td>
 										</tr>
 
 										<tr>
-											<td colspan="2">&nbsp;</td>
+											<td colspan="2">Point</td>
+											<td colspan="1" align="right">${bean.price/100}(1%)</td>
+										</tr>
+
+										<tr>
+											<td colspan="3">&nbsp;</td>
 										</tr>
 
 										<form>
 											<tr>
 												<td>Color</td>
-												<td colspan="1" align="right"><select
-													class="form-control" id="sel1" style="margin-left: 20px;">
+												<td colspan="2" align="right"><select
+													class="form-control" id="sel1" style="margin-left: 20px; width: 250px">
 														<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 														<option>------------------------------</option>
 														<option>그레이</option>
@@ -87,8 +89,8 @@
 
 											<tr>
 												<td>Size</td>
-												<td colspan="1" align="right"><select
-													class="form-control" id="sel2" style="margin-left: 20px;">
+												<td colspan="2" align="right"><select
+													class="form-control" id="sel2" style="margin-left: 20px; width: 250px">
 														<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 														<option>------------------------------</option>
 														<option>S</option>
@@ -113,7 +115,41 @@
 						</tr>
 						<tr>
 							<td>
-								<table>
+							<table>
+							        <tr>
+										<td colspan="5">&nbsp;</td>
+									</tr>					
+								
+								
+									<tr>
+										<td style="vertical-align: middle;text-align: left;" >${bean.pname}</td>
+										<td colspan="3" style="vertical-align: middle;" align="center">
+											<div class="col-sm-3" align="right" style="padding: 0;">
+
+												<span><input type="text"
+													style="width: 20px; height: 30px" value="1"></span>
+
+											</div>
+											<div class="col-sm-3" align="center" style="padding: 0; margin: 0px;width: 30px">
+												<a href="#" class="btn btn-xs btn-default"> <span
+													class="glyphicon glyphicon-chevron-up"></span>
+												</a><br> <a href="#" class="btn btn-xs btn-default"><span
+													class="glyphicon glyphicon-chevron-down"></span></a>
+											
+											</div>
+											<div class="col-sm-3" align="left" style="padding: 0; margin-top: 7px">
+											<a href="#" class="btn btn-xs btn-default">
+												<span class="glyphicon glyphicon-remove"></span> </a>
+											</div>		
+
+										</td>
+										
+										<td style="vertical-align: middle;text-align: right;">${bean.price} won</td>
+									</tr>
+									<tr>
+										<td colspan="5">&nbsp;</td>
+									</tr>
+
 									<tr>
 										<td colspan="5">&nbsp;</td>
 									</tr>
@@ -353,15 +389,15 @@
 										<ul class="list-group">
 											<li class="list-group-item" style="border: 0">
 												<form action="">
-													<div class="input-group"> <span
-														class="input-group-addon"><i
+													<div class="input-group">
+														<span class="input-group-addon"><i
 															class="glyphicon glyphicon-lock"></i></span> <input
-														id="password" type="password" class="form-control"
-														name="password" placeholder="Password"
-														style="width: 200px">
-													<a href="#" class="btn btn-default">확인</a>
+															id="password" type="password" class="form-control"
+															name="password" placeholder="Password"
+															style="width: 200px"> <a href="#"
+															class="btn btn-default">확인</a>
 													</div>
-												</form> 
+												</form>
 											</li>
 										</ul>
 
