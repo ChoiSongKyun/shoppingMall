@@ -31,6 +31,15 @@
 					* parseInt(price);
 		}
 	}
+	
+	function addCart() {
+		var obj= document.getElementById("frm");
+		obj.submit();
+		
+	}
+	
+	
+	
 </script>
 </head>
 <body>
@@ -41,9 +50,11 @@
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<!-- 상품이미지 -->
+			<form action="/shop/addCart.do?cmd=addCart" id="frm" method="post">
 			<div class="col-sm-6">
 				<img src="/shop/img/${bean.mainimg}" class="img-responsive"
 					style="width: 100%" alt="Image" align="top">
+					<input type="hidden" name="mainimg" value="${bean.mainimg}">
 			</div>
 			<div class="col-sm-1"></div>
 			<!-- 구매정보 구매버튼 -->
@@ -207,7 +218,7 @@
 											style="background-color: black; color: white;">BUY IT NOW
 										</a></td>
 										<td>&nbsp;</td>
-										<td style="width: 200px;"><a href="#"
+										<td style="width: 200px;"><a href="javascript:addCart()"
 											class="btn btn-block btn-default">ADD CART</a></td>
 										<td>&nbsp;</td>
 										<td style="width: 200px;"><a href="#"
@@ -222,6 +233,7 @@
 
 
 			</div>
+			</form>
 
 			<div class="col-sm-12" style="height: 150px"></div>
 			<!-- 같이구매한 상품 -->

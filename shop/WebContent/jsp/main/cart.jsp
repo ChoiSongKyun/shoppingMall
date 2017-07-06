@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-</style>
+
 </head>
 
 <body>
+${cart}
+
 
 	<jsp:include page="header.jsp" />
 
@@ -60,6 +64,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="i" items="${cart}">
 						<tr>
 							<!-- 채크 -->
 							<td style="vertical-align: middle;"><input type="checkbox"
@@ -67,14 +72,14 @@
 
 							<!--이미지  -->
 							<td style="vertical-align: middle;"><img
-								src="https://placehold.it/150x180?text=IMAGE"
+								src="/shop/img/${i.mainimg}"
 								class="img-responsive" style="width: 100%" alt="Image"
 								align="top"></td>
 							<!-- 상품정보 -->
 							<td style="vertical-align: middle;"><strong>벨토아 가디건</strong>
 								<h6>[옵션:free]</h6> <a href="#" class="btn btn-xs btn-default">옵션변경</a></td>
 							<!-- 판매가 -->
-							<td style="vertical-align: middle; text-align: center;">32,000
+							<td style="vertical-align: middle; text-align: center;"><span>${i.price}</span>
 								won</td>
 
 							<!-- 수량 -->
@@ -83,7 +88,7 @@
 								<div class="col-sm-6" align="right" style="padding: 0;">
 
 									<span><input type="text"
-										style="width: 20px; height: 30px"></span>
+										style="width: 20px; height: 30px" value="${i.bamount}"></span>
 
 								</div>
 								<div class="col-sm-6" align="left" style="padding: 0;">
@@ -100,7 +105,7 @@
 							<!-- 배송비-->
 							<td style="vertical-align: middle; text-align: center;">무료</td>
 							<!-- 합계 -->
-							<td style="vertical-align: middle; text-align: center;">32,000
+							<td style="vertical-align: middle; text-align: center;"><span>${i.price*i.bamount}</span>
 								won</td>
 							<!--선택  -->
 							<td style="vertical-align: middle; text-align: center;"><a
@@ -110,6 +115,7 @@
 								style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
 								href="#" class="btn btn-sm btn-default">삭제하기</a></td>
 						</tr>
+						</c:forEach>
 
 						<tr style="height: 70px; background-color: #f7f7f7">
 							<td colspan="5" style="text-align: left; vertical-align: middle;">&nbsp;[기본배송]</td>
