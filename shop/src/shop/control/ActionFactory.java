@@ -18,7 +18,7 @@ public class ActionFactory {
 		else if (cmd.equals("addCart")) {
 			action=new AddCartAction("jsp/main/cart.jsp", false);
 		}
-		
+		 
 		return action;
 		
 	}//method

@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ 
 <% 
 Vector<Buybean>cart=new Vector<Buybean>();
 request.getSession().setAttribute("cart",cart);
-response.sendRedirect("/shop/home.do?cmd=home");
+response.sendRedirect("/shop/home.do?cmd=home"); 
 %>
 
 </body>

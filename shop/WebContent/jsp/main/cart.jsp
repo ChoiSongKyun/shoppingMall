@@ -124,7 +124,7 @@ ${cart}
 								32,000 + 배송비 0(무료)=합계: 74,000 won &nbsp;</td>
 
 						</tr>
-
+ 
 						<tr style="height: 50px;">
 							<td colspan="5" style="text-align: left; vertical-align: middle;">&nbsp;
 								선택상품을 &nbsp;<a href="#" class="btn btn-sm btn-default">삭제하기</a>

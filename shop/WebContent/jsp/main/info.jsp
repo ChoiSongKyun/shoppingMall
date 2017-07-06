@@ -56,7 +56,7 @@
 					style="width: 100%" alt="Image" align="top">
 					<input type="hidden" name="mainimg" value="${bean.mainimg}">
 			</div>
-			<div class="col-sm-1"></div>
+			<div class="col-sm-1"></div> 
 			<!-- 구매정보 구매버튼 -->
 
 			<div class="col-sm-5">
