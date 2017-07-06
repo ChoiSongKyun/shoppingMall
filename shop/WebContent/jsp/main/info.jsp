@@ -5,7 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+	function amountUp() {
+		var bamount = document.getElementById("bamount");
+		bamount.value = parseInt(bamount.value) + 1;
+		document.getElementById("total").innerHTML = parseInt(bamount.value);
+
+	}
+	function amountDown() {
+		var bamount = document.getElementById("bamount");
+		if (bamount.value != 0) {
+			bamount.value = parseInt(bamount.value) - 1;
+		document.getElementById("total").innerHTML =parseInt(bamount.value);
+		}
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -45,8 +61,10 @@
 
 										<tr>
 											<td colspan="2">상품명</td>
-											
-											<td colspan="1" align="right">${bean.pname}</td>
+
+											<td colspan="1" align="right">${bean.pname}<input
+												type="hidden" name="pname" value="${bean.pname}"></td>
+
 										</tr>
 										<tr>
 											<td colspan="3">&nbsp;</td>
@@ -54,7 +72,8 @@
 
 										<tr>
 											<td colspan="2">Price</td>
-											<td colspan="1" align="right">${bean.price} won</td>
+											<td colspan="1" align="right">${bean.price}won<input
+												type="hidden" name="price" value="${bean.price}"></td>
 										</tr>
 
 										<tr>
@@ -63,7 +82,8 @@
 
 										<tr>
 											<td colspan="2">Point</td>
-											<td colspan="1" align="right">${bean.price/100}(1%)</td>
+											<td colspan="1" align="right">${bean.price/100}(1%)<input
+												type="hidden" name="point" value="${bean.price/100}"></td>
 										</tr>
 
 										<tr>
@@ -74,7 +94,8 @@
 											<tr>
 												<td>Color</td>
 												<td colspan="2" align="right"><select
-													class="form-control" id="sel1" style="margin-left: 20px; width: 250px">
+													class="form-control" id="sel1"
+													style="margin-left: 20px; width: 250px">
 														<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 														<option>------------------------------</option>
 														<option>그레이</option>
@@ -90,7 +111,8 @@
 											<tr>
 												<td>Size</td>
 												<td colspan="2" align="right"><select
-													class="form-control" id="sel2" style="margin-left: 20px; width: 250px">
+													class="form-control" id="sel2"
+													style="margin-left: 20px; width: 250px">
 														<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 														<option>------------------------------</option>
 														<option>S</option>
@@ -115,36 +137,41 @@
 						</tr>
 						<tr>
 							<td>
-							<table>
-							        <tr>
-										<td colspan="5">&nbsp;</td>
-									</tr>					
-								
-								
+								<table>
 									<tr>
-										<td style="vertical-align: middle;text-align: left;" >${bean.pname}</td>
+										<td colspan="5">&nbsp;</td>
+									</tr>
+
+
+									<tr>
+										<td style="vertical-align: middle; text-align: left;">${bean.pname}</td>
 										<td colspan="3" style="vertical-align: middle;" align="center">
 											<div class="col-sm-3" align="right" style="padding: 0;">
 
-												<span><input type="text"
+												<span><input type="text" name="bamount" id="bamount"
 													style="width: 20px; height: 30px" value="1"></span>
 
 											</div>
-											<div class="col-sm-3" align="center" style="padding: 0; margin: 0px;width: 30px">
-												<a href="#" class="btn btn-xs btn-default"> <span
-													class="glyphicon glyphicon-chevron-up"></span>
-												</a><br> <a href="#" class="btn btn-xs btn-default"><span
-													class="glyphicon glyphicon-chevron-down"></span></a>
-											
+											<div class="col-sm-3" align="center"
+												style="padding: 0; margin: 0px; width: 30px">
+												<a href="javascript:amountUp()" class="btn btn-xs btn-default"> <span
+													class="glyphicon glyphicon-chevron-up" id="up"></span>
+												</a><br> <a href="javascript:amountDown()"
+													class="btn btn-xs btn-default"><span
+													class="glyphicon glyphicon-chevron-down" id="down"></span></a>
+
 											</div>
-											<div class="col-sm-3" align="left" style="padding: 0; margin-top: 7px">
-											<a href="#" class="btn btn-xs btn-default">
-												<span class="glyphicon glyphicon-remove"></span> </a>
-											</div>		
+											<div class="col-sm-3" align="left"
+												style="padding: 0; margin-top: 7px">
+												<a href="#" class="btn btn-xs btn-default"> <span
+													class="glyphicon glyphicon-remove"></span>
+												</a>
+											</div>
 
 										</td>
-										
-										<td style="vertical-align: middle;text-align: right;">${bean.price} won</td>
+
+										<td style="vertical-align: middle; text-align: right;">${bean.price}
+											won</td>
 									</tr>
 									<tr>
 										<td colspan="5">&nbsp;</td>
@@ -154,7 +181,7 @@
 										<td colspan="5">&nbsp;</td>
 									</tr>
 									<tr>
-										<td colspan="5" align="right">total: 0 (0개)</td>
+										<td colspan="5" align="right">total:<span id="total">0</span>'(' <span id="total">0</span> ')'</td>
 									</tr>
 									<tr>
 										<td colspan="5">&nbsp;</td>
