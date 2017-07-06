@@ -8,17 +8,27 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
-	function amountUp() {
+	function amountUp(price) {
 		var bamount = document.getElementById("bamount");
 		bamount.value = parseInt(bamount.value) + 1;
 		document.getElementById("total").innerHTML = parseInt(bamount.value);
+		+"°³";
+		document.getElementsByName("totalprice")[0].innerHTML = parseInt(bamount.value)
+				* parseInt(price);
+		document.getElementsByName("totalprice")[1].innerHTML = parseInt(bamount.value)
+				* parseInt(price);
 
 	}
-	function amountDown() {
+	function amountDown(price) {
 		var bamount = document.getElementById("bamount");
-		if (bamount.value != 0) {
+		if (bamount.value >  1) {
 			bamount.value = parseInt(bamount.value) - 1;
-		document.getElementById("total").innerHTML =parseInt(bamount.value);
+			document.getElementById("total").innerHTML = parseInt(bamount.value);
+			+"°³";
+			document.getElementsByName("totalprice")[0].innerHTML = parseInt(bamount.value)
+					* parseInt(price);
+			document.getElementsByName("totalprice")[1].innerHTML = parseInt(bamount.value)
+					* parseInt(price);
 		}
 	}
 </script>
@@ -154,9 +164,10 @@
 											</div>
 											<div class="col-sm-3" align="center"
 												style="padding: 0; margin: 0px; width: 30px">
-												<a href="javascript:amountUp()" class="btn btn-xs btn-default"> <span
+												<a href="javascript:amountUp(${bean.price})"
+													class="btn btn-xs btn-default"> <span
 													class="glyphicon glyphicon-chevron-up" id="up"></span>
-												</a><br> <a href="javascript:amountDown()"
+												</a><br> <a href="javascript:amountDown(${bean.price})"
 													class="btn btn-xs btn-default"><span
 													class="glyphicon glyphicon-chevron-down" id="down"></span></a>
 
@@ -170,8 +181,8 @@
 
 										</td>
 
-										<td style="vertical-align: middle; text-align: right;">${bean.price}
-											won</td>
+										<td style="vertical-align: middle; text-align: right;"><span
+											name="totalprice">${bean.price}</span>won</td>
 									</tr>
 									<tr>
 										<td colspan="5">&nbsp;</td>
@@ -181,7 +192,10 @@
 										<td colspan="5">&nbsp;</td>
 									</tr>
 									<tr>
-										<td colspan="5" align="right">total:<span id="total">0</span>'(' <span id="total">0</span> ')'</td>
+										<td colspan="5" align="right">total:<span
+											name="totalprice">${bean.price}</span>won ( <span id="total">1°³</span>
+											)
+										</td>
 									</tr>
 									<tr>
 										<td colspan="5">&nbsp;</td>

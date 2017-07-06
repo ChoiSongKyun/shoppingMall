@@ -8,7 +8,11 @@
 </head>
 <body>
 
-<%response.sendRedirect("/shop/home.do?cmd=home"); %>
+<%response.sendRedirect("/shop/home.do?cmd=home"); 
+
+
+
+%>
 
 </body>
 </html>
