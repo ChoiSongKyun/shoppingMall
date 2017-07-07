@@ -87,7 +87,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
 						Your Account</a></li>
-				<li><a href="/shop/addCart.do?cmd=addCart"><span
+				<li><a href="/shop/jsp/main/cart.jsp""><span
 						class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			</ul>
 		</div>

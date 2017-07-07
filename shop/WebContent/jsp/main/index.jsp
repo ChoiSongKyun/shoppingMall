@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="shop.bean.Buybean"%>
 <%@page import="java.util.Vector"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -11,7 +13,7 @@
 <body>
  
 <% 
-Vector<Buybean>cart=new Vector<Buybean>();
+List<Buybean>cart=new ArrayList<Buybean>();
 request.getSession().setAttribute("cart",cart);
 response.sendRedirect("/shop/home.do?cmd=home"); 
 %>

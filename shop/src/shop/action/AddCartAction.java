@@ -1,5 +1,7 @@
 package shop.action;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +28,7 @@ public class AddCartAction implements Action{
 		// TODO Auto-generated method stub
 		try {
 			request.setCharacterEncoding("EUC-KR");
-			Vector<Buybean> cart= (Vector<Buybean>)request.getSession().getAttribute("cart");
+			List<Buybean> cart= (ArrayList<Buybean>)request.getSession().getAttribute("cart");
 			Buybean buybean=new Buybean();
 			String mainimg=request.getParameter("mainimg");
 			String pname=request.getParameter("pname");
@@ -35,9 +37,10 @@ public class AddCartAction implements Action{
 			buybean.setMainimg(mainimg);
 			buybean.setPname(pname);
 			buybean.setPrice(price);
-			buybean.setBamount(bamount);			
-			cart.add(buybean);
+			buybean.setBamount(bamount);	
 			
+			
+			cart.add(buybean);			
 			request.getSession().setAttribute("cart", cart);
 			
 			

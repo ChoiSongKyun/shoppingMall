@@ -1,17 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>	
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script>
+
+function deleteCart(index) {
+	document.location="/shop/deleteCart.do?cmd=deleteCart&index="+index;
+	
+}
+
+
+
+</script>
 
 </head>
 
 <body>
-${cart}
+	
 
 
 	<jsp:include page="header.jsp" />
@@ -64,57 +74,58 @@ ${cart}
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach var="i" items="${cart}">
-						<tr>
-							<!-- 채크 -->
-							<td style="vertical-align: middle;"><input type="checkbox"
-								value=""></td>
+						<c:forEach var="i" items="${cart}" varStatus="cnt">
+							<tr>
 
-							<!--이미지  -->
-							<td style="vertical-align: middle;"><img
-								src="/shop/img/${i.mainimg}"
-								class="img-responsive" style="width: 100%" alt="Image"
-								align="top"></td>
-							<!-- 상품정보 -->
-							<td style="vertical-align: middle;"><strong>벨토아 가디건</strong>
-								<h6>[옵션:free]</h6> <a href="#" class="btn btn-xs btn-default">옵션변경</a></td>
-							<!-- 판매가 -->
-							<td style="vertical-align: middle; text-align: center;"><span>${i.price}</span>
-								won</td>
+								<!-- 채크 -->
+								<td style="vertical-align: middle;"><input type="checkbox"
+									value=""></td>
 
-							<!-- 수량 -->
-							<td style="vertical-align: middle;" align="center">
+								<!--이미지  -->
+								<td style="vertical-align: middle;"><img
+									src="/shop/img/${i.mainimg}" class="img-responsive"
+									style="width: 100%" alt="Image" align="top"></td>
+								<!-- 상품정보 -->
+								<td style="vertical-align: middle;"><strong>벨토아
+										가디건</strong>
+									<h6>[옵션:free]</h6> <a href="#" class="btn btn-xs btn-default">옵션변경</a></td>
+								<!-- 판매가 -->
+								<td style="vertical-align: middle; text-align: center;"><span>${i.price}</span>
+									won</td>
 
-								<div class="col-sm-6" align="right" style="padding: 0;">
+								<!-- 수량 -->
+								<td style="vertical-align: middle;" align="center">
 
-									<span><input type="text"
-										style="width: 20px; height: 30px" value="${i.bamount}"></span>
+									<div class="col-sm-6" align="right" style="padding: 0;">
 
-								</div>
-								<div class="col-sm-6" align="left" style="padding: 0;">
-									<a href="#" class="btn btn-xs btn-default"> <span
-										class="glyphicon glyphicon-chevron-up"></span>
-									</a><br> <a href="#" class="btn btn-xs btn-default"><span
-										class="glyphicon glyphicon-chevron-down"></span></a>
-								</div>
-							</td>
-							<!-- 적립금 -->
-							<td style="vertical-align: middle; text-align: center;">-</td>
-							<!-- 배송구분 -->
-							<td style="vertical-align: middle; text-align: center;">기본배송</td>
-							<!-- 배송비-->
-							<td style="vertical-align: middle; text-align: center;">무료</td>
-							<!-- 합계 -->
-							<td style="vertical-align: middle; text-align: center;"><span>${i.price*i.bamount}</span>
-								won</td>
-							<!--선택  -->
-							<td style="vertical-align: middle; text-align: center;"><a
-								href="#" class="btn btn-sm btn-default"
-								style="background-color: black; color: white;">주문하기</a><br>
-								<a href="#" class="btn btn-sm btn-default"
-								style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
-								href="#" class="btn btn-sm btn-default">삭제하기</a></td>
-						</tr>
+										<span><input type="text"
+											style="width: 20px; height: 30px" value="${i.bamount}"></span>
+
+									</div>
+									<div class="col-sm-6" align="left" style="padding: 0;">
+										<a href="#" class="btn btn-xs btn-default"> <span
+											class="glyphicon glyphicon-chevron-up"></span>
+										</a><br> <a href="#" class="btn btn-xs btn-default"><span
+											class="glyphicon glyphicon-chevron-down"></span></a>
+									</div>
+								</td>
+								<!-- 적립금 -->
+								<td style="vertical-align: middle; text-align: center;">-</td>
+								<!-- 배송구분 -->
+								<td style="vertical-align: middle; text-align: center;">기본배송</td>
+								<!-- 배송비-->
+								<td style="vertical-align: middle; text-align: center;">무료</td>
+								<!-- 합계 -->
+								<td style="vertical-align: middle; text-align: center;"><span>${i.price*i.bamount}</span>
+									won</td>
+								<!--선택  -->
+								<td style="vertical-align: middle; text-align: center;"><a
+									href="#" class="btn btn-sm btn-default"
+									style="background-color: black; color: white;">주문하기</a><br>
+									<a href="#" class="btn btn-sm btn-default"
+									style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
+									href="javascript:deleteCart(${cnt.count-1})" class="btn btn-sm btn-default">삭제하기</a></td>
+							</tr>
 						</c:forEach>
 
 						<tr style="height: 70px; background-color: #f7f7f7">
@@ -124,7 +135,7 @@ ${cart}
 								32,000 + 배송비 0(무료)=합계: 74,000 won &nbsp;</td>
 
 						</tr>
- 
+
 						<tr style="height: 50px;">
 							<td colspan="5" style="text-align: left; vertical-align: middle;">&nbsp;
 								선택상품을 &nbsp;<a href="#" class="btn btn-sm btn-default">삭제하기</a>

@@ -183,12 +183,12 @@
 													class="glyphicon glyphicon-chevron-down" id="down"></span></a>
 
 											</div>
-											<div class="col-sm-3" align="left"
+											<!-- <div class="col-sm-3" align="left"
 												style="padding: 0; margin-top: 7px">
 												<a href="#" class="btn btn-xs btn-default"> <span
 													class="glyphicon glyphicon-remove"></span>
 												</a>
-											</div>
+											</div> -->
 
 										</td>
 
@@ -204,7 +204,7 @@
 									</tr>
 									<tr>
 										<td colspan="5" align="right">total:<span
-											name="totalprice">${bean.price}</span>won ( <span id="total">1°³</span>
+											name="totalprice">${bean.price}</span>won ( <span id="total">1</span>°³
 											)
 										</td>
 									</tr>
