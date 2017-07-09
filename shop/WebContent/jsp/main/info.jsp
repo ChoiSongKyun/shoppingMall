@@ -38,6 +38,19 @@
 		
 	}
 	
+	function changeAmount(price) {
+		var bamount = document.getElementById("bamount");
+			bamount.value = parseInt(bamount.value)
+			document.getElementById("total").innerHTML = parseInt(bamount.value);
+			+"°³";
+			document.getElementsByName("totalprice")[0].innerHTML = parseInt(bamount.value)
+					* parseInt(price);
+			document.getElementsByName("totalprice")[1].innerHTML = parseInt(bamount.value)
+					* parseInt(price);
+	}
+
+
+	
 	
 	
 </script>
@@ -170,7 +183,7 @@
 											<div class="col-sm-3" align="right" style="padding: 0;">
 
 												<span><input type="text" name="bamount" id="bamount"
-													style="width: 20px; height: 30px" value="1"></span>
+													style="width: 20px; height: 30px" value="1" onchange="javascript:changeAmount(${bean.price})"></span>
 
 											</div>
 											<div class="col-sm-3" align="center"

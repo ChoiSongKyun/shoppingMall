@@ -7,21 +7,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+	function deleteCart(index) {
+		document.location = "/shop/deleteCart.do?cmd=deleteCart&index=" + index;
 
-function deleteCart(index) {
-	document.location="/shop/deleteCart.do?cmd=deleteCart&index="+index;
+	}
 	
-}
+	
+	function amountUp(index,price) {
+		var bamount = document.getElementsByName("bamount")[index-1];
+		bamount.value = parseInt(bamount.value) + 1;
+		/* document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value)
+				* parseInt(price);	 */
 
-
+	}
+	function amountDown(index,price) {
+		var bamount = document.getElementsByName("bamount")[index-1];
+		if (bamount.value >  1) {
+			bamount.value = parseInt(bamount.value) - 1;			
+			/* document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value)
+					* parseInt(price);	 */
+		}
+	}
 
 </script>
 
 </head>
 
 <body>
-	
+
 
 
 	<jsp:include page="header.jsp" />
@@ -74,6 +89,9 @@ function deleteCart(index) {
 						</tr>
 					</thead>
 					<tbody>
+						<!--상품하나  -->
+						<c:set var="t" value="0"></c:set>
+
 						<c:forEach var="i" items="${cart}" varStatus="cnt">
 							<tr>
 
@@ -99,14 +117,17 @@ function deleteCart(index) {
 									<div class="col-sm-6" align="right" style="padding: 0;">
 
 										<span><input type="text"
-											style="width: 20px; height: 30px" value="${i.bamount}"></span>
+											style="width: 20px; height: 30px" value="${i.bamount}" name="bamount"></span>
 
 									</div>
 									<div class="col-sm-6" align="left" style="padding: 0;">
-										<a href="#" class="btn btn-xs btn-default"> <span
-											class="glyphicon glyphicon-chevron-up"></span>
-										</a><br> <a href="#" class="btn btn-xs btn-default"><span
-											class="glyphicon glyphicon-chevron-down"></span></a>
+										<a href="javascript:amountUp(${cnt.count},${bean.price})"
+													class="btn btn-xs btn-default"> <span
+													class="glyphicon glyphicon-chevron-up" id="up"></span>
+												</a><br> <a href="javascript:amountDown(${cnt.count},${bean.price})"
+													class="btn btn-xs btn-default"><span
+													class="glyphicon glyphicon-chevron-down" id="down"></span></a>
+
 									</div>
 								</td>
 								<!-- 적립금 -->
@@ -116,7 +137,7 @@ function deleteCart(index) {
 								<!-- 배송비-->
 								<td style="vertical-align: middle; text-align: center;">무료</td>
 								<!-- 합계 -->
-								<td style="vertical-align: middle; text-align: center;"><span>${i.price*i.bamount}</span>
+								<td style="vertical-align: middle; text-align: center;"><span name="semiprice">${i.price*i.bamount}</span>
 									won</td>
 								<!--선택  -->
 								<td style="vertical-align: middle; text-align: center;"><a
@@ -124,15 +145,18 @@ function deleteCart(index) {
 									style="background-color: black; color: white;">주문하기</a><br>
 									<a href="#" class="btn btn-sm btn-default"
 									style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
-									href="javascript:deleteCart(${cnt.count-1})" class="btn btn-sm btn-default">삭제하기</a></td>
+									href="javascript:deleteCart(${cnt.count-1})"
+									class="btn btn-sm btn-default">삭제하기</a></td>
 							</tr>
+									<input type="hidden" value="${t=t+i.price*i.bamount}">
 						</c:forEach>
+						<!--  -->
 
 						<tr style="height: 70px; background-color: #f7f7f7">
 							<td colspan="5" style="text-align: left; vertical-align: middle;">&nbsp;[기본배송]</td>
 							<td colspan="5"
 								style="text-align: right; vertical-align: middle;">상품구매금액
-								32,000 + 배송비 0(무료)=합계: 74,000 won &nbsp;</td>
+								${t} + 배송비 0(무료)=합계: ${t} won &nbsp;</td>
 
 						</tr>
 
@@ -165,13 +189,13 @@ function deleteCart(index) {
 					</tr>
 					<tr style="height: 60px;">
 						<td
-							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">32,000
+							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">${t} won
 							won</td>
 						<td
 							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">+0
 							won</td>
 						<td
-							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">=32,000
+							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">=${t} won
 							won</td>
 					</tr>
 				</table>
