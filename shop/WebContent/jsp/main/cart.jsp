@@ -165,6 +165,7 @@
 									href="javascript:deleteCart(${cnt.count-1})"
 									class="btn btn-sm btn-default">삭제하기</a></td>
 							
+							
 							</tr>
 							<input type="hidden" value="${p=p+(i.price*i.bamount)}">
 						</c:forEach>
