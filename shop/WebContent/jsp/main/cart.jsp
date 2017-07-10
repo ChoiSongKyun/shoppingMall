@@ -18,19 +18,36 @@
 	function amountUp(index,price) {
 		var bamount = document.getElementsByName("bamount")[index-1];
 		bamount.value = parseInt(bamount.value) + 1;
-		/* document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value)
-				* parseInt(price);	 */
+		 document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value) * parseInt(price);
+		 
+		 var p=pprice();
+		 document.getElementsByName("pprice")[0].innerHTML=p;
+		 document.getElementsByName("pprice")[1].innerHTML=p;
 
 	}
 	function amountDown(index,price) {
 		var bamount = document.getElementsByName("bamount")[index-1];
 		if (bamount.value >  1) {
 			bamount.value = parseInt(bamount.value) - 1;			
-			/* document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value)
-					* parseInt(price);	 */
+			document.getElementsByName("semiprice")[index-1].innerHTML = parseInt(bamount.value)* parseInt(price);
 		}
+		
+		 var p=pprice();
+		 document.getElementsByName("pprice")[0].innerHTML=p;
+		 document.getElementsByName("pprice")[1].innerHTML=p;
+		
 	}
-
+	
+	 function pprice() {
+		var semiprice = document.getElementsByName("semiprice");
+		var pprice=0
+		
+		for(var i=0;i<semiprice.length;i++){
+			pprice+=parseInt(semiprice[i].innerHTML);
+		}
+		
+		return pprice;	
+	 }
 </script>
 
 </head>
@@ -90,7 +107,7 @@
 					</thead>
 					<tbody>
 						<!--상품하나  -->
-						<c:set var="t" value="0"></c:set>
+						<c:set var="p" value="0"></c:set>
 
 						<c:forEach var="i" items="${cart}" varStatus="cnt">
 							<tr>
@@ -121,10 +138,10 @@
 
 									</div>
 									<div class="col-sm-6" align="left" style="padding: 0;">
-										<a href="javascript:amountUp(${cnt.count},${bean.price})"
+										<a href="javascript:amountUp(${cnt.count},${i.price})"
 													class="btn btn-xs btn-default"> <span
 													class="glyphicon glyphicon-chevron-up" id="up"></span>
-												</a><br> <a href="javascript:amountDown(${cnt.count},${bean.price})"
+												</a><br> <a href="javascript:amountDown(${cnt.count},${i.price})"
 													class="btn btn-xs btn-default"><span
 													class="glyphicon glyphicon-chevron-down" id="down"></span></a>
 
@@ -147,8 +164,9 @@
 									style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
 									href="javascript:deleteCart(${cnt.count-1})"
 									class="btn btn-sm btn-default">삭제하기</a></td>
+							
 							</tr>
-									<input type="hidden" value="${t=t+i.price*i.bamount}">
+							<input type="hidden" value="${p=p+(i.price*i.bamount)}">
 						</c:forEach>
 						<!--  -->
 
@@ -156,7 +174,7 @@
 							<td colspan="5" style="text-align: left; vertical-align: middle;">&nbsp;[기본배송]</td>
 							<td colspan="5"
 								style="text-align: right; vertical-align: middle;">상품구매금액
-								${t} + 배송비 0(무료)=합계: ${t} won &nbsp;</td>
+								<span name="pprice">${p}</span> won + 배송비 0(무료)=합계:<span>총가격</span>  won &nbsp;</td>
 
 						</tr>
 
@@ -189,13 +207,13 @@
 					</tr>
 					<tr style="height: 60px;">
 						<td
-							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">${t} won
+							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;"><span name="pprice">${p}</span>
 							won</td>
 						<td
 							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">+0
 							won</td>
 						<td
-							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">=${t} won
+							style="vertical-align: middle; text-align: center; border: 1px solid #ddd;">=총가격 won
 							won</td>
 					</tr>
 				</table>
