@@ -102,7 +102,7 @@
 	</div>
 	<br>
 	<br>
-	<br>
+	<br> 
 	<div class="container text-center" style="margin-bottom: 200px">
 		<h3>B E S T</h3>
 		<br>
