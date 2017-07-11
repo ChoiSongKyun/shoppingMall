@@ -108,17 +108,17 @@
 		<br>
 		<div class="row">
 			<!-- 그림하나  -->
-			<c:forEach var="i" items="${list}">
-					<div class="col-sm-4" style="margin-bottom: 30px; margin-top: 30px">
+			<c:forEach var="i" items="${list}" varStatus="cnt">
+					<div class="col-sm-3" style="margin-bottom: 30px; margin-top: 30px">
 				<a href="/shop/info.do?cmd=info&pno=${i.pno }">
-				<div class="col-sm-12">
-						<img src="/shop/img/${i.mainimg}" class="img-responsive"
-							style="width: 100%" alt="Image">
+						<img src="/shop/img/${i.mainimg}" class="img-responsive" alt="${i.mainimg}">
 						<p>${i.pname}</p>
 						<p>${i.price}</p>
-				</div>		
 				</a>
 					</div>
+					<c:if test="${cnt.count%4 == 0}">
+						</div><div class="row">
+					</c:if>
 			</c:forEach>
 		</div>
 	</div>
