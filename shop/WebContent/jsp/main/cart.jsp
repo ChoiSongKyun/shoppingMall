@@ -10,8 +10,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-	function deleteCart(index) {
-		document.location = "/shop/deleteCart.do?cmd=deleteCart&index=" + index;
+	function deleteCart(index,flag) {
+		
+		document.location = "/shop/deleteCart.do?cmd=deleteCart&index=" + index+"&flag="+flag;
 
 	}
 
@@ -55,15 +56,10 @@
 	}
 	
 	
-	function alldelete(length) {
-		var cart=length;
-		
-		for (var i = 0; i < length; i++) {
-			deleteCart(i);
-		}
+	
 		
 		
-	}
+	
 </script>
 
 </head>
@@ -182,7 +178,7 @@
 									style="background-color: black; color: white;">주문하기</a><br>
 									<a href="#" class="btn btn-sm btn-default"
 									style="margin-top: 5px; margin-bottom: 5px">관심상품</a><br> <a
-									href="javascript:deleteCart(${cnt.count-1})"
+									href="javascript:deleteCart(${cnt.count-1},'one')"
 									class="btn btn-sm btn-default">삭제하기</a></td>
 
 
@@ -207,7 +203,7 @@
 							</td>
 							<td colspan="5"
 								style="text-align: right; vertical-align: middle;"><a
-								href="javascript:alldelete(${fn:length(cart)})" class="btn btn-sm btn-default">장바구니비우기&nbsp;</a></td>
+								href="javascript:deleteCart('0','all')" class="btn btn-sm btn-default">장바구니비우기&nbsp;</a></td>
 
 						</tr>
 
