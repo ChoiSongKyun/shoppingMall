@@ -16,6 +16,7 @@ public class Buybean {
 	private int ino;
 	private int bamount;
 	private String bregdate;
+	private String delivery;
 
 	public int getBno() {
 		return bno;
@@ -129,11 +130,20 @@ public class Buybean {
 		this.bregdate = bregdate;
 	}
 
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+
 	@Override
 	public String toString() {
 		return "Buybean [bno=" + bno + ", mno=" + mno + ", ono=" + ono + ", psize=" + psize + ", color=" + color
 				+ ", pno=" + pno + ", pname=" + pname + ", price=" + price + ", mainimg=" + mainimg + ", cno=" + cno
-				+ ", cname=" + cname + ", ino=" + ino + ", bamount=" + bamount + ", bregdate=" + bregdate + "]";
+				+ ", cname=" + cname + ", ino=" + ino + ", bamount=" + bamount + ", bregdate=" + bregdate
+				+ ", delivery=" + delivery + "]";
 	}
 
 }

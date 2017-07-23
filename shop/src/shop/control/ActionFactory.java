@@ -22,7 +22,7 @@ public class ActionFactory {
 			action=new AddCartAction("/shop/cart.do?cmd=cart", true);
 		}
 		else if (cmd.equals("deleteCart")){
-			action=new DeleteCartAction("jsp/main/cart.jsp", false);
+			action=new DeleteCartAction("/shop/cart.do?cmd=cart", true);
 		}
 		else if (cmd.equals("cart")){
 			action=new CartAction("jsp/main/cart.jsp", false);
