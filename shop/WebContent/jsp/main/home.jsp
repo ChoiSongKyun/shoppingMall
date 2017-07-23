@@ -32,24 +32,34 @@
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+				<img src="/shop/img/main1.jpg" alt="Image">
 				<div class="carousel-caption">
-					<h3>Sell $</h3>
-					<p>Money Money.</p>
+					<h3>Bridal collection</h3>
+					<p></p>
 				</div>
 			</div>
 
 			<div class="item">
-				<img src="https://placehold.it/1200x400?text=Another Image Maybe"
+				<img src="/shop/img/main2.jpg"
 					alt="Image">
 				<div class="carousel-caption">
-					<h3>More Sell $</h3>
-					<p>Lorem ipsum...</p>
+					<h3>Rose classiqu</h3>
+					<p></p>
+				</div>
+			</div>
+			
+			<div class="item">
+				<img src="/shop/img/main3.jpg"
+					alt="Image">
+				<div class="carousel-caption">
+					<h3>Champ de fleurs</h3>
+					<p></p>
 				</div>
 			</div>
 		</div>

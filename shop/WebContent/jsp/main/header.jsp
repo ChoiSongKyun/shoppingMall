@@ -25,8 +25,8 @@
 
 
 
-	<div class="jumbotron">
-		<div class="container text-center">
+	<div class="jumbotron" style="background-color: white;">
+		<div class="container text-center" style="background-color: white;">
 			<h1>Online Store</h1>
 			<p>Mission, Vission & Values</p>
 		</div>
