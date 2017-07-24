@@ -19,6 +19,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- DB연동 -->
     <typeAliases>
     	 <typeAlias type="shop.bean.ProductBean" alias="product"/> 
+    	 <typeAlias type="shop.bean.OptionBean" alias="option"/> 
     </typeAliases>
     
     

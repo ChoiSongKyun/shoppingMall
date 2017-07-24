@@ -59,6 +59,7 @@
 <body>
 	<jsp:include page="header.jsp" />
 
+	${option} ${color }
 
 
 	<div class="container" style="margin-top: 100px">
@@ -220,8 +221,8 @@
 										<tr>
 											<td colspan="5" align="right">total:<span
 												name="totalprice"><fmt:formatNumber
-														value="${bean.price}" pattern="#,###" /></span>원 ( <span id="total">1</span>개
-												)
+														value="${bean.price}" pattern="#,###" /></span>원 ( <span
+												id="total">1</span>개 )
 											</td>
 										</tr>
 										<tr>
