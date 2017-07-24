@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,7 +60,10 @@
 <body>
 	<jsp:include page="header.jsp" />
 
-	${option} ${color }
+	${option} 
+	
+	
+	
 
 
 	<div class="container" style="margin-top: 100px">
@@ -131,14 +135,16 @@
 											<form>
 												<tr>
 													<td>Color</td>
-													<td colspan="2" align="right"><select
+													<td colspan="2" align="right">
+													
+													<select
 														class="form-control" id="sel1"
 														style="margin-left: 20px; width: 250px">
 															<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 															<option>------------------------------</option>
-															<option>그레이</option>
-															<option>베이지</option>
-															<option>블랙</option>
+															<c:forEach var="i" items="${color }" varStatus="cnt">
+																<option id="${i}">${i}</option>
+															</c:forEach> 
 													</select></td>
 												</tr>
 

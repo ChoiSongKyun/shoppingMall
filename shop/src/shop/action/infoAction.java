@@ -34,12 +34,14 @@ public class infoAction implements Action {
 			List<OptionBean> option = dao.selectPoption(pno);
 			request.setAttribute("option", option);
 			Set<String> color = new HashSet<String>();
+			
 
 			for (int i = 0; i < option.size(); i++) {
 				color.add(option.get(i).getColor());
 			}
 
-			request.setAttribute("color", color);
+			
+			request.setAttribute("color", color.toArray());
 
 		} catch (Exception e) {
 			// TODO: handle exception
