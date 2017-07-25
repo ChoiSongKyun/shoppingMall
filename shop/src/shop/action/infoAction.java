@@ -7,6 +7,9 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import shop.bean.OptionBean;
 import shop.control.ActionForWard;
 import shop.dao.shopDao;
@@ -31,13 +34,25 @@ public class infoAction implements Action {
 
 			request.setAttribute("bean", dao.selectOne(pno));
 
-			List<OptionBean> option = dao.selectPoption(pno);
+			List<OptionBean> list = dao.selectPoption(pno);
+			JSONArray option= new JSONArray();
+			
+			for (int i = 0; i < list.size(); i++) {
+			JSONObject sub=new JSONObject();
+			sub.put("ono", list.get(i).getOno());
+			sub.put("color", list.get(i).getColor());
+			sub.put("size", list.get(i).getPsize());
+			sub.put("pno", list.get(i).getPno());
+			option.add(sub);
+			}
 			request.setAttribute("option", option);
+			
+			
 			Set<String> color = new HashSet<String>();
 			
 
-			for (int i = 0; i < option.size(); i++) {
-				color.add(option.get(i).getColor());
+			for (int i = 0; i < list.size(); i++) {
+				color.add(list.get(i).getColor());
 			}
 
 			

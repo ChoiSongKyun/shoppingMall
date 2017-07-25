@@ -50,7 +50,21 @@
 			document.getElementsByName("totalprice")[1].innerHTML = parseInt(bamount.value)
 					* parseInt(price);
 	}
-
+	
+	var option =${option};
+	
+	function selectoption() {
+		var parents=document.getElementByid("sel1");
+		
+		sel1.
+		
+		
+		
+		alert(option);
+		
+	}
+		
+	
 
 	
 	
@@ -60,10 +74,6 @@
 <body>
 	<jsp:include page="header.jsp" />
 
-	${option} 
-	
-	
-	
 
 
 	<div class="container" style="margin-top: 100px">
@@ -135,16 +145,14 @@
 											<form>
 												<tr>
 													<td>Color</td>
-													<td colspan="2" align="right">
-													
-													<select
+													<td colspan="2" align="right"><select
 														class="form-control" id="sel1"
-														style="margin-left: 20px; width: 250px">
+														style="margin-left: 20px; width: 250px;" onclick="selectoption()">
 															<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 															<option>------------------------------</option>
 															<c:forEach var="i" items="${color }" varStatus="cnt">
 																<option id="${i}">${i}</option>
-															</c:forEach> 
+															</c:forEach>
 													</select></td>
 												</tr>
 
