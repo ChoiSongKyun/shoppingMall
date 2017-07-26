@@ -54,14 +54,17 @@
 	var option =${option};
 	
 	function selectoption() {
-		var parents=document.getElementByid("sel1");
-		
-		sel1.
+		var parents=document.getElementById("sel1");
 		
 		
-		
-		alert(option);
-		
+		for(a in option){				
+			
+			if(parents.value==(option[a])["color"]){
+				alert((option[a])["size"]);
+				
+				
+			}					
+		}		
 	}
 		
 	
@@ -147,7 +150,8 @@
 													<td>Color</td>
 													<td colspan="2" align="right"><select
 														class="form-control" id="sel1"
-														style="margin-left: 20px; width: 250px;" onclick="selectoption()">
+														style="margin-left: 20px; width: 250px;"
+														onclick="selectoption()">
 															<option selected="selected">- [필수]옵션을 선택해 주세요 -</option>
 															<option>------------------------------</option>
 															<c:forEach var="i" items="${color }" varStatus="cnt">
